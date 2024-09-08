@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type ="image/x-icon" href="./favicon.png">
+    <title>Task-1</title>
+    </head>
+    <body>
+        <form id="radius" >
+            <label>
+                Input the radius
+            </label>
+            <input id="inputField" type="number" name="radius" value="" required>
+            <button type="submit">
+                Submit 
+            </button>
+
+            <br>
+            <p id="output"></p>
+        </form>
+    </body>
+
+    <script>
+        
+        const output = document.getElementById('output')
+
+        document.getElementById('radius').addEventListener('submit',function(event) {
+            event.preventDefault();
+
+            const radius = Number(document.getElementById('inputField').value)
+
+            if (!isNaN(radius) && radius > 0)
+        {
+            sphereVolume(radius);
+        }
+        else{
+            console.log("enter valid radius")
+        }
+        })
+
+        function sphereVolume(radius)
+        {
+            
+            var volume = (4.0/3.0) * Math.PI * Math.pow(radius,3);
+            console.log("The volume is ",volume)
+            output.innerText = `The volume of sphere is ${volume} units`
+            
+
+        }
+        </script>
+</html>
